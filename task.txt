@@ -1,0 +1,38 @@
+1. 取球和投框的衔接 
+    取球标志  1. 距离达到一定程度且不丢
+             2. 上位板串口通信
+    投球标志  1.框视野  
+             2.
+
+2.  投框标志：
+    
+    
+
+注 :
+    1.视野煤球， 旋转
+
+#include "ros/ros.h"
+
+int main(int argc, char **argv)
+{
+    // 初始化ROS节点
+    ros::init(argc, argv, "parameter_modifier_node");
+
+    // 创建节点句柄
+    ros::NodeHandle nh;
+
+    // 读取参数
+    int parameter_value;
+    nh.getParam("/your_node_name/parameter_name", parameter_value);
+
+    // 修改参数
+    parameter_value = 123;
+
+    // 写入参数
+    nh.setParam("/your_node_name/parameter_name", parameter_value);
+
+    // 循环等待ROS事件
+    ros::spin();
+
+    return 0;
+}
