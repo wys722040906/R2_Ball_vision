@@ -1,0 +1,36 @@
+weighst :
+    best_10000.pt
+    best_10000+700_wu.pt
+    best_10000+700_you.pt
+train: 
+  设置耐心值
+  python train.py --patience 300
+
+
+launch :
+  <node pkg="message_send_pkg" type="video_handle" name="video_handle" output="screen"/>
+  <node pkg="message_send_pkg" type="message_handle" name="message_handle" output="screen"/>
+$(find yolov5_ros)/weights/best_10000+700_you.pt
+
+topic :
+    /usb_cam/image_raw
+    video_topic
+    /camera/color/image_raw 
+    深度
+    /camera/color/image_raw
+    /camera/depth/image_raw
+
+
+    target_ball
+    target_basket
+
+
+
+串口通信
+roslaunch rosserial_self_launch start_rosserial.launch
+sudo chmod 777 /dev/ttyUSB0
+生成ROS消息
+rosrun rosserial_client make_libraries <生成的文件夹目录>
+
+
+
